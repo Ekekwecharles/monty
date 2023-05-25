@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	FILE *file = NULL;
 	ssize_t readline = 1;
 	stack_t *stack = NULL;
-	unsigned int line;
+	unsigned int line = 0;
 
 	if (argc != 2)
 	{
@@ -22,6 +22,7 @@ int main(int argc, char **argv)
 	}
 
 	file = fopen(argv[1], "r");
+	p_data.file = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -64,6 +65,7 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 
 	unsigned int j = 0;
 	char *opt;
+
 	/* push 1$, first call to strtok gets push */
 	opt = strtok(data, DELIMS);
 	/* second call to strtok gets 1$ */
