@@ -60,6 +60,7 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 	instruction_t option[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 
