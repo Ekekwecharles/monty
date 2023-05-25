@@ -79,3 +79,24 @@ void _pint(stack_t **head, unsigned int line)
 	printf("%d\n", (*head)->n);
 }
 
+/**
+ * _pop - removes the top
+ * @head: head node
+ * @line: line number
+ */
+void _pop(stack_t **head, unsigned int line)
+{
+	stack_t *hd;
+
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
+		fclose(p_data.file);
+		free(p_data.data);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	hd = *head;
+	*head = hd->next;
+	free(hd);
+}

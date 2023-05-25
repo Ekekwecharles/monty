@@ -58,4 +58,5 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file);
 void addnode(stack_t **head, int num);
 void addqueue(stack_t **head, int num);
 void _pint(stack_t **head, unsigned int line);
+void _pop(stack_t **head, unsigned int line);
 #endif
