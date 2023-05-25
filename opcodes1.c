@@ -4,7 +4,7 @@
  * @head: stack head
  * @line: line number
 */
-void f_add(stack_t **head, unsigned int line)
+void _add(stack_t **head, unsigned int line)
 {
 	stack_t *hd;
 	int length = 0, ptr;
@@ -35,7 +35,7 @@ void f_add(stack_t **head, unsigned int line)
   *@head: stack head
   *@line: line_number
  */
-void f_nop(stack_t **head, unsigned int line)
+void _nop(stack_t **head, unsigned int line)
 {
 	(void) head;
 	(void) line;
