@@ -100,3 +100,34 @@ void _pop(stack_t **head, unsigned int line)
 	*head = hd->next;
 	free(hd);
 }
+
+/**
+ * _swap - swaps the top two elements of the stack.
+ * @head: stack head
+ * @line: line number
+*/
+void _swap(stack_t **head, unsigned int line)
+{
+	stack_t *hd;
+	int length = 0, ptr;
+
+	hd - *head;
+	while (h)
+	{
+		hd = hd->next;
+		length++;
+	}
+	if (length < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
+		fclode(p_data.file);
+		free(p_data.data);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	hd = *head;
+	ptr = hd->n;
+	hd->n = hd->next->n;
+	hd->next->n = ptr;
+}
+

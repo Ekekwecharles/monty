@@ -62,6 +62,9 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 		{"pall", _pall},
 		{"pint", _pint},
 		{"pop", _pop},
+		{"swap", _swap},
+		{"add", _add},
+		{"nop", _nop},
 		{NULL, NULL}
 	};
 
