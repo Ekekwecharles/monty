@@ -120,7 +120,7 @@ void free_stack(stack_t *head)
 }
 
 /**
- * _free - gracefully exits the program when an errore occurs
+ * cleanupAndExit - gracefully exits the program when an errore occurs
  * @head: head node
  */
 void cleanupAndExit(stack_t **head)
