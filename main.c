@@ -77,6 +77,8 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 
 	/* push 1$, first call to strtok gets push */
 	opt = strtok(data, DELIMS);
+	if (opt && opt[0] == '#')
+		return (0);
 	/* second call to strtok gets 1$ */
 	p_data.arg = strtok(NULL, DELIMS);
 	while (option[j].opcode && opt)
