@@ -65,6 +65,10 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
