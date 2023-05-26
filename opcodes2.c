@@ -18,19 +18,13 @@ void _mod(stack_t **head, unsigned int line)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	if (hd->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	ptr = hd->next->n % hd->n;
 	hd->next->n = ptr;

@@ -65,10 +65,7 @@ void _pint(stack_t **head, unsigned int line)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	printf("%d\n", (*head)->n);
 }
@@ -85,10 +82,7 @@ void _pop(stack_t **head, unsigned int line)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	*head = hd->next;
@@ -114,10 +108,7 @@ void _swap(stack_t **head, unsigned int line)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	ptr = hd->n;

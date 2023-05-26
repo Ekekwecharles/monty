@@ -18,10 +18,7 @@ void _add(stack_t **head, unsigned int line)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	ptr = hd->n + hd->next->n;
@@ -57,10 +54,7 @@ void _sub(stack_t **head, unsigned int line)
 	if (nodes < 2)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	ptr = *head;
 	res = ptr->next->n - ptr->n;
@@ -68,7 +62,6 @@ void _sub(stack_t **head, unsigned int line)
 	*head = ptr->next;
 	free(ptr);
 }
-
 
 
 /**
@@ -90,19 +83,13 @@ void _div(stack_t **head, unsigned int line)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	if (hd->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	ptr = hd->next->n / hd->n;
 	hd->next->n = ptr;
@@ -129,10 +116,7 @@ void _mul(stack_t **head, unsigned int line)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	hd = *head;
 	ptr = hd->next->n * hd->n;
