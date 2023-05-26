@@ -123,7 +123,7 @@ void free_stack(stack_t *head)
  * _free - gracefully exits the program when an errore occurs
  * @head: head node
  */
-void _free(stack_t **head)
+void cleanupAndExit(stack_t **head)
 {
 	fclose(p_data.file);
 	free(p_data.data);

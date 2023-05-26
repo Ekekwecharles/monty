@@ -52,12 +52,12 @@ void _pchar(stack_t **head, unsigned int line)
 	if (!hd)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
-		_free(head);
+		cleanupAndExit(head);
 	}
 	if (hd->n > 127 || hd->n < 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
-		_free(head);
+		cleanupAndExit(head);
 	}
 	printf("%c\n", hd->n);
 }

@@ -21,19 +21,13 @@ void _push(stack_t **head, unsigned int line)
 		if (flag == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line);
-			fclose(p_data.file);
-			free(p_data.data);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
+			cleanupAndExit(head);
 		}
 	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		fclose(p_data.file);
-		free(p_data.data);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		cleanupAndExit(head);
 	}
 	num = atoi(p_data.arg);
 	if (p_data.lifi == 0)
