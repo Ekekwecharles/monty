@@ -69,6 +69,7 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"p_char", _pchar},
 		{NULL, NULL}
 	};
 

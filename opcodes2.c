@@ -37,3 +37,33 @@ void _mod(stack_t **head, unsigned int line)
 	*head = hd->next;
 	free(hd);
 }
+
+/**
+ * _pchar - prints the char at the top of the stack,
+ * followed by a new line
+ * @head: head node
+ * @line: line counter
+*/
+void _pchar(stack_t **head, unsigned int line)
+{
+	stack_t *hd;
+
+	hd = *head;
+	if (!hd)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+		fclose(p_data.file);
+		free(p_data.data);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	if (hd->n > 127 || hd->n < 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+		fclose(p_data.file);
+		free(p_data.data);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", hd->n);
+}
