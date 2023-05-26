@@ -69,7 +69,7 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
-		{"p_char", _pchar},
+		{"pchar", _pchar},
 		{NULL, NULL}
 	};
 
@@ -117,4 +117,16 @@ void free_stack(stack_t *head)
 		free(head);
 		head = stack;
 	}
+}
+
+/**
+ * _free - gracefully exits the program when an errore occurs
+ * @head: head node
+ */
+void _free(stack_t **head)
+{
+	fclose(p_data.file);
+	free(p_data.data);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
 }
