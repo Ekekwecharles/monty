@@ -42,7 +42,7 @@ void _nop(stack_t **head, unsigned int line)
 }
 
 /**
-  *_sub - subtracts the top element of the stack 
+  *_sub - subtracts the top element of the stack
   *@head: head node
   *@line: line number
  */
