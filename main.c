@@ -32,6 +32,8 @@ int main(int argc, char **argv)
 	while (readline > 0)
 	{
 		data = (char *)malloc(MAX_LINE_SIZE * sizeof(char));
+		/* here fgets is used instead of getline, becos of the c89 used to compile*/
+		/* equivalent to getline(&data, &size, file); */
 		readline = fgets(data, MAX_LINE_SIZE, file) != NULL ? strlen(data) : 0;
 		p_data.data = data;
 		line++;
@@ -62,11 +64,11 @@ int exec_cmd(char *data, stack_t **stack, unsigned int line, FILE *file)
 		{"pint", _pint}, {"pop", _pop},
 		{"swap", _swap}, {"add", _add},
 		{"nop", _nop}, {"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
-		{"pchar", _pchar},
-		{NULL, NULL}
+		{"div", _div}, {"mul", _mul},
+		{"mod", _mod}, {"pchar", _pchar},
+		{"pstr", _pstr}, {"rotl", _rotl},
+		{"rotr", _rotr}, {"queue", _queue},
+		{"stack", _stack}, {NULL, NULL}
 	};
 
 	unsigned int j = 0;

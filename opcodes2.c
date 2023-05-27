@@ -55,3 +55,65 @@ void _pchar(stack_t **head, unsigned int line)
 	}
 	printf("%c\n", hd->n);
 }
+
+/**
+ * _pstr - prints the string starting at the top of the stack
+ * @head: top of the stack
+ * @line: unused
+ */
+void _pstr(stack_t **head, __attribute__((unused)) unsigned int line)
+{
+	stack_t *hd;
+
+	hd = *head;
+	while (hd)
+	{
+		if (hd->n > 127 || hd->n <= 0)
+			break;
+		printf("%c", hd->n);
+		hd = hd->next;
+	}
+	printf("\n");
+}
+
+/**
+ * _rotl - rotates the stack to the top
+ * @head: top of stack
+ * @line: unused
+ */
+void _rotl(stack_t **head, __attribute__((unused)) unsigned int line)
+{
+	stack_t *temp = *head, *ptr;
+
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	ptr = (*head)->next;
+	ptr->prev = NULL;
+	while(temp->next != NULL)
+		temp = temp->next;
+	temp->next = *head;
+	(*head)->next = NULL;
+	(*head)->prev = temp;
+	(*head) = ptr;
+}
+
+/**
+ * _rotr -  rotates the stack to the bottom.
+ * @head: top of stack
+ * @line: unused
+ */
+void _rotr(stack_t **head, __attribute__((unused)) unsigned int line)
+{
+	stack_t *cpy;
+
+	cpy = *head;
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	while (cpy->next)
+		cpy = cpy->next;
+	cpy->next = *head;
+	cpy->prev->next = NULL;
+	cpy->prev = NULL;
+	(*head)->prev = cpy;
+	(*head) = cpy;
+}

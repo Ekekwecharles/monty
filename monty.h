@@ -68,4 +68,9 @@ void _sub(stack_t **head, unsigned int line);
 void _div(stack_t **head, unsigned int line);
 void _pchar(stack_t **head, unsigned int line);
 void cleanupAndExit(stack_t **head);
+void _pstr(stack_t **head, __attribute__((unused)) unsigned int line);
+void _rotl(stack_t **head, __attribute__((unused)) unsigned int line);
+void _rotr(stack_t **head, __attribute__((unused)) unsigned int line);
+void _stack(stack_t **head, unsigned int line);
+void _queue(stack_t **head, unsigned int line);
 #endif
