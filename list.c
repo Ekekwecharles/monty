@@ -44,8 +44,8 @@ void addqueue(stack_t **head, int num)
 	new_node->next = NULL;
 	if (ptr)
 	{
-		*head = new_node;
-		new_node->prev = NULL;
+		while (ptr->next)
+			ptr = ptr->next;
 	}
 	if (!ptr)
 	{
